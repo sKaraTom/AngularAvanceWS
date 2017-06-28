@@ -10,6 +10,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import { Observable } from "rxjs/Observable";
 
+
 @Injectable()
 export class CoursService {
 
@@ -57,20 +58,17 @@ public obtenirListeApi() : Observable<Course[]>{
 
 
 public obtenirlisteCours(): Course[] {
-
     return this.listeCours;
-
 }
 
 public obtenirListeServeur() : Observable<Course[]>{
-
     return this.http.get(this.urlCours)
             .map(resultat => resultat.json());
 }
 
 
 public obtenirCoursNode(id:number) : Observable<Course> {
-    const url = this.url +"/courseById/" + id;
+    const url = this.url +`/coursesById?id=${id}`;
     console.log("l'url :" + url);
 
     return this.http.get(url)

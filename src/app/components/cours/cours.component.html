@@ -44,8 +44,10 @@
 
 <ul *ngFor= "let cours of listeCours  | coursFiltre:recherche" >
 
+    <!--passer le paramètre cours.id à la route.-->
     <li><a [routerLink]="['/cours',cours.id]" style="text-decoration: none;"><b>
          {{cours.name | uppercase }}</b> <img src="{{cours.image}}" style="width:50px;"></a></li>
+    
     <li style="list-style: none;">{{cours.libelleEtablissement}}</li>
     <li style="list-style: none;">langage : {{cours.language}}</li>
     <li style="list-style: none;">nombre de jours : {{cours.days}}</li>

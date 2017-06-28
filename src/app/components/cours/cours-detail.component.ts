@@ -25,22 +25,22 @@ export class CoursDetailComponent implements OnInit {
 
       constructor(private router:ActivatedRoute,
       private route:Router,
-      private coursService:CoursService) {
+      private coursService:CoursService
+      )
+      
+       {
         this.cours = new Course();
         this.coursModifie = new Course();
+        
+        // récupérer l'id du cours depuis l'url.
         this.id = this.router.snapshot.params['id'];
         this.obtenirCours();
 
       }
       
         ngOnInit(): void {
-            
-            
-            
-            this.title = `Détail du cours ${this.id}`;
 
-            
-            
+            this.title = `Détail du cours ${this.id}`;
 
         }
 
@@ -61,9 +61,11 @@ public obtenirCours() {
 }
 
 
-public confirmerModification(form) {
+public confirmerModification() {
 
-    this.coursModifie = form.value;
+    // ici sauver this.cours qui a été modifié (two ways binding [(ngModel)] de chaque champ.)
+
 }
+
 
 }

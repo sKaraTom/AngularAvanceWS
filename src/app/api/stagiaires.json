@@ -1,0 +1,29 @@
+[
+
+  {
+    "id":1,
+	"nom":"Mick",
+    "prenom":"Jagger",
+    "mail":"mj@gmail.com"
+    },
+  {
+    "id":2,
+	"nom":"Keith",
+    "prenom":"Richards",
+    "mail":"kr@gmail.com"
+    },
+  {
+    "id":3,
+	"nom":"Charlie",
+    "prenom":"Watts",
+    "mail":"cw@gmail.com"
+    },
+  {
+    "id":4,
+	"nom":"Ronnie",
+    "prenom":"Woods",
+    "mail":"rw@gmail.com"
+    }
+
+
+]

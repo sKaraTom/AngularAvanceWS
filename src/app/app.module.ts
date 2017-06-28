@@ -14,21 +14,15 @@ import { PageNotFoundComponent } from "./components/page-not-found.component";
 import { CoursDetailComponent } from "./components/cours/cours-detail.component";
 import { ContactModule } from "./components/contact/contact.module";
 import { ContactComponent } from "./components/contact/contact.component";
+import { AppRoutingModule } from "app/app-routing.module";
+import { StagiaireComponent } from './stagiaire/stagiaire.component';
+import { StagiaireService } from "app/services/stagiaire.service";
 
-
-
-const routes : Routes = [
-  { path: 'accueil', component: HomeComponent },
-  { path: 'cours', component: CoursListeComponent },
-  { path:'cours/:id', component: CoursDetailComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: '', redirectTo: '/accueil', pathMatch: 'full'},
-  { path: '**', component: PageNotFoundComponent }
-  ];
 
 @NgModule({
-  imports:      [ HttpModule,BrowserModule,ContactModule, CoursModule, HomeModule, RouterModule.forRoot(routes)  ],
-  declarations: [ AppComponent, PageNotFoundComponent ],
+  imports:      [ HttpModule,BrowserModule,ContactModule, CoursModule, HomeModule, AppRoutingModule  ],
+  declarations: [ AppComponent, PageNotFoundComponent, StagiaireComponent ],
+  providers: [StagiaireService],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
