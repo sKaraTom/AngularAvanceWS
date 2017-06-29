@@ -18,9 +18,11 @@ export class StagiaireService {
   
 public obtenirStagiaires() : Observable<Stagiaire[]>{
 
-    let options = new RequestOptions({ headers: this.headers });
+    // let options = new RequestOptions({ headers: this.headers });
+    const url = 'app/api/stagiaires.json';
 
-    return this.http.get("D:/PROJETS/AngAvanceWS/src/app/api/stagiaires.json",options)
+    return this.http.get(url)
+            .do(x => console.log(x))
             .map(reponse => reponse.json());
 }
 

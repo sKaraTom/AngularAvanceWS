@@ -1,0 +1,26 @@
+<div class="container">
+<div class="row">
+    <div class="col-xs-auto">
+        <h2>Animation Parent</h2>
+    </div>
+    <div class="col-xs-auto"> 
+        <a routerLink="pop" class="btn btn-default">ouvrir pop-up avec animation</a>
+    </div>
+</div>
+
+<hr>
+
+<div class="row">
+<ul class="nav nav-tabs">
+  <li role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      <a routerLink="/animation/1">Enfant 1</a></li>
+  <li role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+    <a a routerLink="/animation/2">enfant 2</a></li>
+</ul>
+</div>
+
+<div class="view-side-form">
+<router-outlet></router-outlet>
+</div>
+
+</div>

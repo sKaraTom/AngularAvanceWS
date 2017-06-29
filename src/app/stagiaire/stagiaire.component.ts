@@ -26,7 +26,7 @@ export class StagiaireComponent implements OnInit {
     this.stagiaireService.obtenirStagiaires()
                 .subscribe(
                   reponse => this.listeStagiaires = reponse,
-                  erreur => console.log(erreur),
+                  erreur => {},
                   () => console.log("c'est terminé !")
                 );
     

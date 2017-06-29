@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { CoursModule } from "./components/cours/cours.module";
 import { HttpModule } from "@angular/http";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { HomeModule } from "./components/home/home.module";
 
 import { RouterModule, Routes } from '@angular/router';
@@ -21,11 +20,21 @@ import { TodosService } from "app/services/todos.service";
 import { OpenDataParisComponent } from './open-data-paris/open-data-paris.component';
 import { OpenDataParisService } from "app/services/opendata-paris.service";
 import { TodosComponent } from './todos/todos.component';
+import { BrowserAnimationsModule, NoopAnimationsModule } from "@angular/platform-browser/animations";
+import { AnimParentComponent } from "app/components/animations/anim-parent.component";
+import { AnimEnfantUnComponent } from "app/components/animations/anim-enfant-un.component";
+import { AnimEnfantDeuxComponent } from "app/components/animations/anim-enfant-deux.component";
+import { AnimEnfantPopupComponent } from "app/components/animations/anim-enfant-popup.component";
+import { GMapModule } from "primeng/primeng";
 
 
 @NgModule({
-  imports:      [ HttpModule,BrowserModule,ContactModule, CoursModule, HomeModule, AppRoutingModule  ],
-  declarations: [ AppComponent, PageNotFoundComponent, StagiaireComponent, OpenDataParisComponent, TodosComponent ],
+  imports:      [ GMapModule,HttpModule,BrowserAnimationsModule,BrowserModule,ContactModule,
+  CoursModule, HomeModule, AppRoutingModule  ],
+  declarations: [ AppComponent, PageNotFoundComponent, StagiaireComponent, 
+  OpenDataParisComponent,TodosComponent,
+  AnimParentComponent, AnimEnfantUnComponent, AnimEnfantDeuxComponent,
+  AnimEnfantPopupComponent ],
   providers: [StagiaireService,TodosService,OpenDataParisService],
   bootstrap:    [ AppComponent ]
 })

@@ -1,0 +1,6 @@
+
+#colBouton {
+    display: flex; /* 3 lignes pour centrer verticalement:*/
+    flex-direction: column; /* direction d'affichage verticale */
+    justify-content: center;
+}
