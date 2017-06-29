@@ -1,0 +1,19 @@
+
+<h2>Todos : test webservices via json (site JsonPlaceholder)</h2>
+
+
+
+<button type="button" (click)="creerTodos();" class="btn btn-default btn-lg">
+  <span class="glyphicon glyphicon-star" aria-hidden="true"></span> creer Todos
+</button>
+<hr>
+
+
+<ul *ngFor= "let todos of listeTodos let index='index'" class="list-group" style="border-style:groove;">
+    index : {{index}}
+    <li class="list-group-item">userId : {{todos.userId }}</li>
+     <li class="list-group-item">id = {{todos.id }}</li>
+      <li class="list-group-item">titre : {{todos.title }}</li>
+       <li class="list-group-item">complété : {{todos.completed }}</li>
+</ul>
+

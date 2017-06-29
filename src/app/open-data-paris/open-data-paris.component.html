@@ -1,0 +1,18 @@
+<h2>Open Data Paris</h2>
+
+
+
+<button type="button" (click)="obtenirLivresPretes();" class="btn btn-default btn-lg">
+  <span class="glyphicon glyphicon-star" aria-hidden="true"></span> obtenir Livres Paris
+</button>
+<hr>
+
+
+<ul *ngFor= "let livre of listeLivres let index='index'" class="list-group" style="border-style:groove;">
+    index : {{index}} - titre : {{livre.fields.titre}}
+    <!--<li class="list-group-item">{{livre | json}}</li>-->
+    <li class="list-group-item">nombre de prêts : {{livre.fields.nombre_de_prets}}</li>
+    <li class="list-group-item">auteur : {{livre.fields.auteur}}</li>
+    <li class="list-group-item">support : {{livre.fields.support}}</li>
+    <li class="list-group-item">date d'enregistrement : {{livre.record_timestamp | date:'dd/MM/y  HH:mm'}}</li>
+</ul>

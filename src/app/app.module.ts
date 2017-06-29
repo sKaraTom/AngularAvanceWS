@@ -17,12 +17,16 @@ import { ContactComponent } from "./components/contact/contact.component";
 import { AppRoutingModule } from "app/app-routing.module";
 import { StagiaireComponent } from './stagiaire/stagiaire.component';
 import { StagiaireService } from "app/services/stagiaire.service";
+import { TodosService } from "app/services/todos.service";
+import { OpenDataParisComponent } from './open-data-paris/open-data-paris.component';
+import { OpenDataParisService } from "app/services/opendata-paris.service";
+import { TodosComponent } from './todos/todos.component';
 
 
 @NgModule({
   imports:      [ HttpModule,BrowserModule,ContactModule, CoursModule, HomeModule, AppRoutingModule  ],
-  declarations: [ AppComponent, PageNotFoundComponent, StagiaireComponent ],
-  providers: [StagiaireService],
+  declarations: [ AppComponent, PageNotFoundComponent, StagiaireComponent, OpenDataParisComponent, TodosComponent ],
+  providers: [StagiaireService,TodosService,OpenDataParisService],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Stagiaire } from "app/objets-metiers/stagiaire";
 import { StagiaireService } from "app/services/stagiaire.service";
+import { TodosService } from "app/services/todos.service";
+import { Todos } from "app/objets-metiers/todos";
 
 @Component({
   selector: 'app-stagiaire',
@@ -27,8 +29,11 @@ export class StagiaireComponent implements OnInit {
                   erreur => console.log(erreur),
                   () => console.log("c'est terminé !")
                 );
-
+    
 
   }
+
+
+
 
 }

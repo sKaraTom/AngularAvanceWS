@@ -1,7 +1,9 @@
-<p>
-  stagiaire works!
-</p>
+<h2>Stagiaire</h2>
 
+<p>
+La boucle ne marche pas à cause du fichier json local (le navigateur bloque son accès
+dans le service)
+</p>
 
 <ul *ngFor= "let stagiaire of listeStagiaires" >
 
@@ -10,3 +12,4 @@
       <li>{{stagiaire.prenom }}</li>
        <li>{{stagiaire.mail }}</li>
 </ul>
+

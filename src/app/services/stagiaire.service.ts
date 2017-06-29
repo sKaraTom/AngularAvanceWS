@@ -1,24 +1,26 @@
 import { Injectable } from '@angular/core';
 import { Stagiaire } from "app/objets-metiers/stagiaire";
 import { Observable } from "rxjs/Observable";
-import { Http } from "@angular/http";
+import { Http, RequestOptions,Headers } from "@angular/http";
 
 @Injectable()
 export class StagiaireService {
 
-  private listeStagiaires:Stagiaire[];
+  // private listeStagiaires:Stagiaire[];
   private headers = new Headers({'Content-Type': 'application/json'});
 
 
   constructor(private http:Http) { 
 
-    this.listeStagiaires = [];
+    // this.listeStagiaires = [];
   }
 
   
 public obtenirStagiaires() : Observable<Stagiaire[]>{
 
-    return this.http.get("app/api/stagiaires.json")
+    let options = new RequestOptions({ headers: this.headers });
+
+    return this.http.get("D:/PROJETS/AngAvanceWS/src/app/api/stagiaires.json",options)
             .map(reponse => reponse.json());
 }
 
