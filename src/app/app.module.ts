@@ -7,7 +7,6 @@ import { HttpModule } from "@angular/http";
 import { HomeModule } from "./components/home/home.module";
 
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from "./components/home/home.component";
 import { CoursListeComponent } from "./components/cours/cours.component";
 import { PageNotFoundComponent } from "./components/page-not-found.component";
 import { CoursDetailComponent } from "./components/cours/cours-detail.component";
@@ -26,16 +25,26 @@ import { AnimEnfantUnComponent } from "app/components/animations/anim-enfant-un.
 import { AnimEnfantDeuxComponent } from "app/components/animations/anim-enfant-deux.component";
 import { AnimEnfantPopupComponent } from "app/components/animations/anim-enfant-popup.component";
 import { GMapModule } from "primeng/primeng";
+import { LivresComponent } from "app/components/livres/livres.component";
+import { LivreDetailComponent } from './components/livres/livre-detail/livre-detail.component';
+import { AuteurComponent } from './components/livres/livre-detail/auteur/auteur.component';
+import { BiblioComponent } from './components/livres/livre-detail/biblio/biblio.component';
+import { AuthentificationGuard } from "app/guards/authentification.guard";
+import { AuthentificationService } from "app/services/authentification.service";
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
 
 
 @NgModule({
-  imports:      [ GMapModule,HttpModule,BrowserAnimationsModule,BrowserModule,ContactModule,
-  CoursModule, HomeModule, AppRoutingModule  ],
+  imports:      [ FormsModule,CommonModule, GMapModule,HttpModule,BrowserAnimationsModule,
+  BrowserModule,ContactModule,CoursModule, HomeModule, AppRoutingModule  ],
+  
   declarations: [ AppComponent, PageNotFoundComponent, StagiaireComponent, 
   OpenDataParisComponent,TodosComponent,
   AnimParentComponent, AnimEnfantUnComponent, AnimEnfantDeuxComponent,
-  AnimEnfantPopupComponent ],
-  providers: [StagiaireService,TodosService,OpenDataParisService],
+  AnimEnfantPopupComponent,LivresComponent, LivreDetailComponent, AuteurComponent, BiblioComponent ],
+  
+  providers: [AuthentificationService,AuthentificationGuard,StagiaireService,TodosService,OpenDataParisService],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

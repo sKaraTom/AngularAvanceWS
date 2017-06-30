@@ -1,28 +1,51 @@
 <h2>Bienvenue sur l'accueil !</h2>
 
 
- <div class="container" style="width:300px;">
+ <div class="container" *ngIf="!estConnecte" style="width:300px;">
+
+      <div style="text-align:justify;font-size:small;">login et mdp rentrés en dur pour test guard : toto - mdp</div>
 
       <!--Formulaire bootstrap avec tooltip "veuillez renseigner ce champ" si
           non validé -->
-      <form class="form-signin">
-        <h2 class="form-signin-heading">Authentification</h2>
+          <!--(ngSubmit)="onSubmit(form)"-->
+      <form #form="ngForm" class="form-signin" (submit)="seConnecter(form)">
+        <h2 class="form-signin-heading" style="text-align:center;">Authentification</h2>
         
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" 
-               style="margin-bottom:4%;" placeholder="Email address" required autofocus>
+        <label for="inputEmail" class="sr-only">Email</label>
+        <input type="email" id="inputEmail" #login="ngModel" ngModel name="login" class="form-control" 
+               style="margin-bottom:4%;" placeholder="Login" required autofocus>
         
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control"
-               placeholder="Password" required>
+        <label for="inputPassword" class="sr-only">Mot de passe</label>
+        <input type="password" id="inputPassword" #password="ngModel" ngModel name="password" class="form-control"
+               placeholder="Mot de passe" required>
         
         <div class="checkbox">
           <label>
-            <input type="checkbox" value="remember-me"> Remember me
+            <input type="checkbox" value="remember-me"> Se souvenr de moi
           </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn3d btn-block"  type="submit">Connexion</button>
       </form>
 
     </div> <!-- /container -->
+<div style="margin:2vh;">
+    <div *ngIf="messageSucces" class="alert alert-success" role="alert">connexion effectuée avec succès.</div>
+    <div *ngIf="messageErreur" class="alert alert-danger" role="alert">la connexion a échoué.</div>
+</div>
+
+<div class="container" *ngIf="estConnecte">
+	<div align="center" class="row">
+   <button type="button" class="btn btn-info btn-lg btn3d" (click)="seDeconnecter();">
+     <span class="glyphicon glyphicon-log-out"></span> Déconnexion</button>
+	</div>
+</div>
+<!--
+  <hr>
+
+  <div *ngIf="!estConnecte">    
+      <pre> Formulaire : {{form.value | json }}</pre>
+      <pre> email valid : {{ login.valid }}</pre>
+      <pre> password valid : {{ password.valid }}</pre>
+      <pre> prenom pristine : {{ password.pristine }}</pre>
+</div>-->
 

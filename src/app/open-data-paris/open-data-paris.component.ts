@@ -8,7 +8,7 @@ import { OpenDataParisService } from "app/services/opendata-paris.service";
 })
 export class OpenDataParisComponent implements OnInit {
 
-  private listeLivres = [];
+  listeLivres = [];
 
   constructor(private openDataParisService:OpenDataParisService) { }
 
@@ -16,7 +16,7 @@ export class OpenDataParisComponent implements OnInit {
   }
 
   
-  private obtenirLivresPretes() {
+  public obtenirLivresPretes() {
       this.openDataParisService.obtenirLivresPretesParis()
                   .subscribe(res => this.listeLivres = res.records,
                   err => console.log(err),

@@ -20,7 +20,7 @@ export class TodosComponent implements OnInit {
 
   }
 
-  private obtenirTodos():void {
+  public obtenirTodos():void {
 
     this.todosService.obtenirTodos()
                     .subscribe(res => this.listeTodos = res,
@@ -29,7 +29,7 @@ export class TodosComponent implements OnInit {
 
   }
 
-  private creerTodos() {
+  public creerTodos() {
 
     let todosTest:Todos = new Todos();
     todosTest.userId = 22222;

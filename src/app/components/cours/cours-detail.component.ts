@@ -3,6 +3,7 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Course } from "../../objets-metiers/course";
 import { CoursService } from "../../services/cours.service";
+import { NgForm } from "@angular/forms";
 
 
 @Component({
@@ -61,7 +62,7 @@ public obtenirCours() {
 }
 
 
-public confirmerModification() {
+public confirmerModification(form:NgForm) {
 
     // ici sauver this.cours qui a été modifié (two ways binding [(ngModel)] de chaque champ.)
 

@@ -21,7 +21,7 @@ export class AnimEnfantPopupComponent implements OnInit {
 
 public activerRaccourciClavier(event):void {
 
-    if (event.keyCode == 27){
+    if (event.keyCode == 27 || event.keyCode == 39){
       this.router.navigate(['/animation']);
     }
 

@@ -19,7 +19,7 @@ export class CoursListeComponent implements OnInit {
     idCours:number;
 
     msgs: Message[] = [];
-
+    recherche:string = "coucou";
 
     cestFini:string;
 

@@ -32,5 +32,7 @@ export class ContactComponent implements OnInit {
             this.contactService.envoyerContactForm(form.value);
         }   
 
-
+        public seConnecter(form) {
+            console.log("tentative de log.");
+        }
 }

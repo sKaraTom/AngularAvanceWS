@@ -1,7 +1,7 @@
 
 
 
-import { Routes, RouterModule } from "@angular/router";
+import { Routes, RouterModule, CanActivate } from "@angular/router";
 import { HomeComponent } from "app/components/home/home.component";
 import { CoursListeComponent } from "app/components/cours/cours.component";
 import { CoursDetailComponent } from "app/components/cours/cours-detail.component";
@@ -15,14 +15,22 @@ import { AnimParentComponent } from "app/components/animations/anim-parent.compo
 import { AnimEnfantUnComponent } from "app/components/animations/anim-enfant-un.component";
 import { AnimEnfantDeuxComponent } from "app/components/animations/anim-enfant-deux.component";
 import { AnimEnfantPopupComponent } from "app/components/animations/anim-enfant-popup.component";
+import { LivresComponent } from "app/components/livres/livres.component";
+import { AuteurComponent } from "app/components/livres/livre-detail/auteur/auteur.component";
+import { BiblioComponent } from "app/components/livres/livre-detail/biblio/biblio.component";
+import { LivreDetailComponent } from "app/components/livres/livre-detail/livre-detail.component";
+import { AuthentificationGuard } from "app/guards/authentification.guard";
 
 
 
 const routes: Routes = [
   { path: 'accueil', component: HomeComponent },
-  { path: 'cours', component: CoursListeComponent },
-  { path:'cours/:id', component: CoursDetailComponent },
-  { path: 'contact', component: ContactComponent },
+  { path: 'cours', component: CoursListeComponent,
+        canActivate:[AuthentificationGuard] },
+  { path:'cours/:id', component: CoursDetailComponent,
+        canActivate:[AuthentificationGuard] },
+  { path: 'contact', component: ContactComponent,
+        canActivate:[AuthentificationGuard] },
   { path: 'stagiaires', component: StagiaireComponent},
   { path: 'todos', component: TodosComponent},
   { path: 'opendata', component: OpenDataParisComponent},
@@ -32,7 +40,15 @@ const routes: Routes = [
         {path: '2', component: AnimEnfantDeuxComponent},
         {path: 'pop', component: AnimEnfantPopupComponent}
       ]},
-  
+  { path: 'livres', component: LivresComponent},
+  { path: 'livres/:id', component: LivreDetailComponent,
+      canActivate:[AuthentificationGuard],
+      children : [
+        {path: 'auteur', component: AuteurComponent},
+        {path: 'biblio', component: BiblioComponent}
+      ]},
+
+
   { path: '', redirectTo: '/accueil', pathMatch: 'full'},
   { path: '**', component: PageNotFoundComponent }
   ];
